@@ -14,7 +14,7 @@ pipeline {
                 dir("ReportApp") {
                     sh "rm -Rf ReportApp.zip"
                     echo "start zipping"
-                    sh "zip"
+                    sh "unzip"
                     //sh "find . -type f -print | zip ReportApp.zip -@"
                     echo "zipping done"
                 }
