@@ -1,6 +1,5 @@
-// sample jenkins file
+
 import static groovy.json.JsonOutput.toJson;
-//serverURL = "https://eventtriggernew.pr.rightnow.com/AgentWeb"
 serverURL = "https://elementmanager2.pr.rightnow.com/AgentWeb"
 extensionName = "ReportApp"
 pipeline {
@@ -17,23 +16,8 @@ pipeline {
                 }
                 echo "start zipping"
                 sh "rm -Rf ReportApp.zip"
-                    //zip zipFile: 'ReportApp.zip'
                 zip zipFile: "ReportApp.zip", archive: true, dir: "ReportApp"
-                    //sh "find . -type f -print | zip ReportApp.zip -@"
                 echo "zipping done"
-
-                // sh """
-                //     cd ReportApp
-                //     cd
-                //     IF EXIST ReportApp.zip DEL /F ReportApp.zip
-                //     find . -type f -print | zip ReportApp.zip -@
-                // """.stripIndent().trim()
-                //bat "IF EXIST ReportApp.zip DEL /F ReportApp.zip"
-                //bat "cd ReportApp"
-                //echo "CD after ReportApp"
-                //bat "cd"
-                //bat "7z a -tzip ReportApp.zip"
-                //bat "git clone  http://phoenix216798.appsdev1.fusionappsdphx1.oraclevcn.com:3000/vishnu/Extensions.git"
                 }
             }
         }
