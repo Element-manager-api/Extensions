@@ -81,7 +81,7 @@ def uploadZip(zip, name, token) {
           "itemType": "BrowserExtension",
           "extensionAttributes":{
               "extensionType": "Console",
-              "extensionInitFile": "pages/index.html"}}}}
+              "extensionInitFile": "index.html"}}}}
         """
     echo req
     //retry(2) {
