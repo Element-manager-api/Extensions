@@ -24,3 +24,4 @@ var initalizeConsoleAddin = (function () {
     };
     return initalizeConsoleAddin;
 }());
+
