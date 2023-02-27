@@ -48,7 +48,7 @@ pipeline {
                         pkgStatus = uploadZip(zip, extensionName, token)
                         status = 0
                         while (status != '5' && status != '15') {
-                            sleep(50)
+                            sleep(1)
                             echo "Checking Import status"
                             pkgStatus = getImportPackageStatus(pkgStatus.id, token)
                             status = pkgStatus.status.code
@@ -76,7 +76,7 @@ pipeline {
     }
 }
 def getImportPackageStatus(id, token) {
-    def response = httpRequest  acceptType: 'APPLICATION_JSON',ignoreSslErrors:true, httpMode: 'GET', url: "${serverURL}/elementmanager/import/EMPackages/${id}", customHeaders: [[name: 'USERSESSION', value: token], [name: 'Cookie', value: "USERSESSION=${token}"]]
+    def response = httpRequest  acceptType: 'APPLICATION_JSON',ignoreSslErrors:true, httpMode: 'GET', url: "${serverURL}/api/elementmanager/import/EMPackages/${id}", customHeaders: [[name: 'USERSESSION', value: token], [name: 'Cookie', value: "USERSESSION=${token}"]]
     echo response.content
     return parseJSON(response.content)
 }
