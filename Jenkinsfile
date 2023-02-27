@@ -5,7 +5,7 @@ extensionName = "ReportApp"
 pipeline {
     agent any
     stages {
-        stage('Pull extension from Git') {
+        stage('Package extension') {
             steps {
                 script {
                 echo 'Pulling..'
@@ -49,12 +49,6 @@ pipeline {
                         throw errorMessage
                     }
                 }
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying..'
-                
             }
         }
     }
