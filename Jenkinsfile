@@ -1,7 +1,7 @@
 // sample jenkins file
 import static groovy.json.JsonOutput.toJson;
 //serverURL = "https://eventtriggernew.pr.rightnow.com/AgentWeb"
-serverURL = "https://as-cxsets.corp.channels.ocs.oc-test.com/AgentWeb"
+serverURL = "https://elementmanager2.pr.rightnow.com/AgentWeb"
 extensionName = "ReportApp"
 pipeline {
     agent any
