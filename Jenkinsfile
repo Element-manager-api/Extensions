@@ -88,7 +88,7 @@ def deployImportPackage(id, token) {
     }
     """
     echo payload
-    response = httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', ignoreSslErrors:true, httpMode: 'PATCH', requestBody: payload, url: "${serverURL}/elementmanager/import/EMPackages", customHeaders: [[name: 'USERSESSION', value: token], [name: 'Cookie', value: "USERSESSION=${token}"]]
+    response = httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', ignoreSslErrors:true, httpMode: 'PATCH', requestBody: payload, url: "${serverURL}/api/elementmanager/import/EMPackages", customHeaders: [[name: 'USERSESSION', value: token], [name: 'Cookie', value: "USERSESSION=${token}"]]
     echo response.content
     return parseJSON(response.content)
 }
