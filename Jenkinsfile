@@ -13,12 +13,14 @@ pipeline {
 
                 dir("ReportApp") {
                     sh "rm -Rf ReportApp.zip"
-                    echo "start zipping"
-                    //zip zipFile: 'ReportApp.zip'
-                    zip zipFile: "ReportApp.zip", archive: true, dir: "."
-                    //sh "find . -type f -print | zip ReportApp.zip -@"
-                    echo "zipping done"
+                    
                 }
+                echo "start zipping"
+                sh "rm -Rf ReportApp.zip"
+                    //zip zipFile: 'ReportApp.zip'
+                zip zipFile: "ReportApp.zip", archive: true, dir: "ReportApp"
+                    //sh "find . -type f -print | zip ReportApp.zip -@"
+                echo "zipping done"
 
                 // sh """
                 //     cd ReportApp
