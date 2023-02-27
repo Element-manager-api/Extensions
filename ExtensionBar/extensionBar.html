@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Extension Bar Add-In</title>
+<script>
+  function initAddIn() {
+    var nowDate = new Date();
+    var extName = "BLN" + nowDate.valueOf();
+		
+    var globalExtensionBarContext;
+
+    ORACLE_SERVICE_CLOUD.extension_loader.load( extName, "1" ).then(
+      function ( extensionProvider ) {
+        extensionProvider.registerUserInterfaceExtension(
+	  function ( userInterfaceContext ) {
+	    userInterfaceContext.getExtensionBarContext().then(
+	      function ( extensionBarContext ) {
+	        globalExtensionBarContext = extensionBarContext;
+		globalExtensionBarContext.getExtensionBarItem("apple").then(
+		  function ( extensionBarItem ) {
+		    extensionBarItem.setContentUrl("./contact.html");
+		    extensionBarItem.setHeight(250);
+		    extensionBarItem.render();
+		});
+	  });
+      });
+    });
+}
+		
+</script>
+</head>
+<body onload="initAddIn()">      
+</body>
+</html>
