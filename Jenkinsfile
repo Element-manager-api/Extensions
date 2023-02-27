@@ -48,7 +48,7 @@ pipeline {
                         pkgStatus = uploadZip(zip, extensionName, token)
                         status = 0
                         while (status != '5' && status != '15') {
-                            sleep(10)
+                            sleep(50)
                             echo "Checking Import status"
                             pkgStatus = getImportPackageStatus(pkgStatus.id, token)
                             status = pkgStatus.status.code
@@ -61,7 +61,6 @@ pipeline {
                         deployImportPackage(pkgStatus.id, token)
                         echo "Deploy complete"
                     }catch(Exception errorMessage){
-                        gitRevertCommitFromSource()
                         error errorMessage.getMessage()
                         throw errorMessage
                     }
