@@ -1,4 +1,3 @@
-properties([pipelineTriggers([githubPush()])])
 // sample jenkins file
 import static groovy.json.JsonOutput.toJson;
 //serverURL = "https://eventtriggernew.pr.rightnow.com/AgentWeb"
@@ -11,14 +10,20 @@ pipeline {
             steps {
                 script {
                 echo 'Pulling..'
-                bat "cd"
 
-                bat """
-                    cd ReportApp
-                    cd
-                    IF EXIST ReportApp.zip DEL /F ReportApp.zip
-                    winrar a -afzip -r -ed ReportApp.zip
-                """.stripIndent().trim()
+                dir("ReportApp") {
+                    sh "rm -Rf ReportApp.zip"
+                    echo "start zipping"
+                    sh "find . -type f -print | zip ReportApp.zip -@"
+                    echo "zipping done"
+                }
+
+                // sh """
+                //     cd ReportApp
+                //     cd
+                //     IF EXIST ReportApp.zip DEL /F ReportApp.zip
+                //     find . -type f -print | zip ReportApp.zip -@
+                // """.stripIndent().trim()
                 //bat "IF EXIST ReportApp.zip DEL /F ReportApp.zip"
                 //bat "cd ReportApp"
                 //echo "CD after ReportApp"
