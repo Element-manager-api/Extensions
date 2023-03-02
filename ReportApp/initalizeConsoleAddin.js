@@ -3,7 +3,7 @@ var initalizeConsoleAddin = (function () {
     }
     initalizeConsoleAddin.prototype.initialize = function () {
         var id = "reportApp";
-        var label = "Reporting App";
+        var label = "Report App";
         var isDisable = false;
         ORACLE_SERVICE_CLOUD.extension_loader.load("ConsoleApp").then(function (extensionProvider) {
             extensionProvider.registerUserInterfaceExtension(function (userInterfaceExtension) {
@@ -11,7 +11,7 @@ var initalizeConsoleAddin = (function () {
                     leftSidePaneContext.getSidePane(id).then(function (leftPanelContext) {
                         var icon = leftPanelContext.createIcon('font awesome');
                         icon.setIconClass("fa fa-line-chart");
-                        icon.setIconColor("red");
+                        icon.setIconColor("yellow");
                         leftPanelContext.addIcon(icon);
                         leftPanelContext.setContentUrl("reportApp.html");
                         leftPanelContext.setLabel(label);
