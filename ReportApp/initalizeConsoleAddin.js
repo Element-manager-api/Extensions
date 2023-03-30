@@ -11,7 +11,7 @@ var initalizeConsoleAddin = (function () {
                     leftSidePaneContext.getSidePane(id).then(function (leftPanelContext) {
                         var icon = leftPanelContext.createIcon('font awesome');
                         icon.setIconClass("fa fa-line-chart");
-                        icon.setIconColor("green");
+                        icon.setIconColor("yellow");
                         leftPanelContext.addIcon(icon);
                         leftPanelContext.setContentUrl("reportApp.html");
                         leftPanelContext.setLabel(label);
